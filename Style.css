@@ -1,0 +1,230 @@
+:root {
+    --background-color: #2d1b0f;
+    --text-color: #ffcc66;
+    --highlight-color: #ff5733;
+    --buttons-links: #f1e0c5;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    font-family: "Inter", sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header, section, footer {
+    display: flex;
+    width: 80%;
+}
+
+header {
+    justify-content: space-between;
+}
+
+.title, .routes {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.routes > a:last-of-type {
+    background-color: var(--highlight-color);
+    color: var(--buttons-links);
+    padding: 15px 30px;
+    border-radius: 40px;
+    transition: 0.3s ease;
+}
+
+.routes > a:last-of-type:hover {
+    background-color: var(--buttons-links);
+    color: var(--highlight-color);
+}
+
+img {
+    filter: invert(42%) sepia(36%) saturate(2718%) hue-rotate(340deg) brightness(100%) contrast(101%)
+}
+
+a {
+    color: var(--buttons-links);
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    color: var(--highlight-color);
+}
+
+.title i {
+    font-size: 1.6rem;
+    color: var(--highlight-color);
+    transition: 0.5s ease;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.icons a{
+    font-size: 2.4rem;
+    color: var(--highlight-color);
+    transition: 0.5s ease;
+}
+
+.icons a:hover {
+    transform: scale(1.2);
+    color: var(--text-color);
+}
+
+.title-text, .highlight, .highlight span, .context h1, .about_me h1, .context b {
+    color: var(--highlight-color);
+}
+
+.highlight {
+    font-weight: bold;
+}
+
+.highlight span {
+    display: block;
+    text-align: end;
+}
+
+section {
+    flex-direction: column;
+    gap: 80px;
+}
+
+.context, .about_me {
+    justify-content: space-between;
+    display: flex;
+}
+
+.context > div, .about_me > div{
+    width: 50%;
+}
+
+.context .text {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 20px;
+    margin: 0;
+}
+
+.context .buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    gap: 2rem;
+}
+
+.button-primary, .button-secondary {
+    padding: 15px 30px;
+    border-radius: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.button-primary {
+    background-color: var(--text-color);
+    color: var(--highlight-color);
+    border: none;
+}
+
+.button-primary:hover {
+    background-color: var(--highlight-color);
+    color: var(--buttons-links);
+}
+
+.button-secondary {
+    background-color: transparent;
+    border: 3px solid var(--text-color);
+    color: var(--highlight-color);
+    border-radius: 50px;
+}
+
+.button-secondary:hover {
+    background-color: var(--highlight-color);
+    border-color: var(--highlight-color);
+    color: var(--buttons-links);
+}
+
+.about_me_text {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.about_me_text ul, .education ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about_me_text ul li, .education ul li {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.projects, .testimonials, .education {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.project-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-card {
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.project-card h3 {
+    margin: 10px 0;
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.testimonials {
+    color: white;
+}
+
+.testimonial {
+    max-width: 600px;
+    margin: 0 auto;
+    font-style: italic;
+}
+
+footer {
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+footer p{
+    width: 100%;
+}
