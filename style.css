@@ -81,7 +81,6 @@ a {
 
 .title i {
     font-size: 1.6rem;
-    transition: 0.5s ease;
 }
 
 .title h1 {
@@ -104,7 +103,7 @@ a {
     color: var(--buttons-links);
 }
 
-.menu i{
+.menu i {
     display: none;
     cursor: pointer;
 }
@@ -267,7 +266,7 @@ footer p {
         font-size: 1rem;
     }
 
-    .routes{
+    .routes {
         display: none;
     }
 
@@ -275,12 +274,12 @@ footer p {
         gap: 30px;
     }
 
-    .about_me .skills-holder{
+    .about_me .skills-holder {
         grid-template-columns: repeat(3, minmax(100px, 1fr));
         gap: 20px;
     }
 
-    .about_me .skills-holder img{
+    .about_me .skills-holder img {
         width: 100px;
     }
 
@@ -317,7 +316,11 @@ footer p {
         font-size: 0.4rem;
     }
 
-    .buttons{
+    .title i {
+        font-size: 1rem;
+    }
+
+    .buttons {
         justify-content: space-between;
         font-size: 1rem;
         gap: 1rem;
@@ -329,7 +332,7 @@ footer p {
     }
 
     .icons a {
-        font-size: 2.6rem;
+        font-size: 2.4rem;
     }
 
     .highlight {
