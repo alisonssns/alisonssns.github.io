@@ -262,6 +262,10 @@ footer p {
 }
 
 @media (max-width: 1024px) {
+    body{
+        margin-top: 30px;
+    }
+
     .title {
         font-size: 1rem;
     }
@@ -270,8 +274,18 @@ footer p {
         display: none;
     }
 
+    .buttons {
+        justify-content: space-between;
+        font-size: 1rem;
+        gap: 1rem;
+    }
+
     .icons {
         gap: 30px;
+    }
+    
+    .icons a {
+        font-size: 2.4rem;
     }
 
     .about_me .skills-holder {
@@ -320,19 +334,9 @@ footer p {
         font-size: 1rem;
     }
 
-    .buttons {
-        justify-content: space-between;
-        font-size: 1rem;
-        gap: 1rem;
-    }
-
     .icons {
         flex-wrap: wrap;
         gap: 20px;
-    }
-
-    .icons a {
-        font-size: 2.4rem;
     }
 
     .highlight {
