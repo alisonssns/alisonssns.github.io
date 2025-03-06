@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
@@ -19,17 +20,17 @@
             <i class="fa-solid fa-code"></i>
             <h1 class="title-text">Alisson Luis Cordeiro de Arruda</h1>
         </div>
-        <nav class="routes">
-            <a target="_blank" href="">Home</a>
-            <a target="_blank" href="">Sobre Mim</a>
-            <a target="_blank" href="">Serviços</a>
-            <a target="_blank" href="">Projetos</a>
-            <a target="_blank" href="">Fale comigo</a>
-        </nav>
+            <nav class="routes">
+                <a href="#home">Home</a>
+                <a href="#about_me">Sobre Mim</a>
+                <a href="#skills">Habilidades</a>
+                <a href="#projects">Projetos</a>
+                <a target="_blank" href="http://wa.link/4p9kkn">Fale comigo</a>
+            </nav>
     </header>
-    
+
     <section>
-        <div class="context">
+        <div class="context" id="home">
             <div class="text">
                 <b class="highlight">Desenvolvedor <span>Front-End e de Sistemas</span></b>
                 <p>
@@ -41,82 +42,97 @@
                 </p>
                 <div class="buttons">
                     <a target="_blank" href="http://wa.link/4p9kkn" class="button-primary">Falar comigo</a>
-                    <a target="_blank" href="curriculo.pdf" download class="button-secondary">Baixar meu CV</a>
+                    <a target="_blank" href="public/AlissonLuisCordeiro.pdf" download class="button-secondary">Baixar
+                        meu CV</a>
                 </div>
             </div>
-            <img src="img_container.png" alt="">
         </div>
-        
-        <div class="icons">
-            <a target="_blank" href=""> <i class="fa-brands fa-instagram"></i> </a>
-            <a target="_blank" href=""> <i class="fa-brands fa-linkedin"></i> </a>
-            <a target="_blank" href=""> <i class="fa-brands fa-github"></i> </a>
-            <a target="_blank" href=""> <i class="fa-brands fa-whatsapp"></i> </a>
+    </section>
+
+    <div class="icons">
+        <a target="_blank" href="https://www.instagram.com/aleh.luis/"> <i class="fa-brands fa-instagram"></i> </a>
+        <a target="_blank" href="https://www.linkedin.com/in/alissonluiscordeiro/"> <i
+                class="fa-brands fa-linkedin"></i> </a>
+        <a target="_blank" href="https://github.com/alisonssns"> <i class="fa-brands fa-github"></i> </a>
+        <a target="_blank" href="http://wa.link/4p9kkn"> <i class="fa-brands fa-whatsapp"></i> </a>
+    </div>
+
+    <section class="about_me" data-aos="fade-up" id="about_me">
+        <div>
+            <h1 class="title-text">Sobre Mim</h1>
+            <p>
+                Atualmente, tenho 20 anos e sou estudante do 3º período no IFPR - Pinhais. Sou uma pessoa apaixonada
+                por
+                tecnologia e estou sempre em busca de aprimorar meus conhecimentos e explorar novas ferramentas e
+                metodologias.
+            </p>
+            <p>
+                Durante meu primeiro ano na faculdade, tive contato com diversos temas da área de computação, e
+                alguns
+                despertaram um interesse especial em mim, como estruturas de dados, padrões de projetos, árvores
+                binárias e linguagens de programação como Java e C++. Esses conceitos têm sido fundamentais para meu
+                desenvolvimento acadêmico e profissional.
+            </p>
+            <p>
+                Mais abaixo neste portfólio, apresento alguns dos projetos que desenvolvi ao longo desse período de
+                aprendizado, demonstrando minha evolução e aplicação prática dos conhecimentos adquiridos.
+            </p>
         </div>
 
-        <div class="about_me" data-aos="fade-up">
-            <img src="img_container.png" alt="">
-            <div class="about_me_text">
-                <h1 class="title-text">Sobre Mim</h1>
-                <p>
-                    Sou estudante de Ciência da Computação e apaixonado por tecnologia. Atualmente, estou focado no
-                    desenvolvimento Front-End e no estudo de bancos de dados. Gosto de desafios e estou sempre
-                    aprendendo novas tecnologias para melhorar minhas habilidades.
-                </p>
-                <h2 class="highlight">Skills</h2>
-                <ul>
-                    <li>HTML, CSS, JavaScript</li>
-                    <li>React, JQuery</li>
-                    <li>SQL, Banco de Dados</li>
-                    <li>APIs em .NET</li>
-                </ul>
+        <div id="skills">
+            <h2>Skills</h2>
+            <div class="skills-holder">
+                <img src="public/html.png" alt="">
+                <img src="public/css.png" alt="">
+                <img src="public/js.png" alt="">
+                <img src="public/typescript.png" alt="">
+                <img src="public/react.png" alt="">
+                <img src="public/mysql.png" alt="">
+                <img src="public/java.png" alt="">
+                <img src="public/github.png" alt="">
             </div>
         </div>
     </section>
 
-    <section class="projects" data-aos="fade-up">
-        <h1 class="title-text">Projetos</h1>
+    <section class="projects" data-aos="fade-up" id="projects">
+        <h1 class="highlight">Projetos</h1>
         <div class="project-list">
             <div class="project-card">
-                <img src="img/projeto1.jpg" alt="Projeto 1">
-                <h3>Jogo de Cartas Online</h3>
-                <p>Um jogo de cartas interativo baseado em batalhas estratégicas.</p>
-                <a href="https://github.com/seuusuario/projeto1" class="button-primary">Ver no GitHub</a>
+                <img src="public/TechEase.png" alt="Projeto 1">
+                <h3>TechEase</h3>
+                <p>Um E-Commerce para venda de periféricos feito em React.</p>
+                <a href="https://github.com/alisonssns/Esportive" target="_blank" class="button-secondary">Ver no
+                    GitHub</a>
             </div>
             <div class="project-card">
-                <img src="img/projeto2.jpg" alt="Projeto 2">
-                <h3>Sistema de Reservas</h3>
-                <p>Projeto acadêmico para reserva de espaços esportivos em Pinhais.</p>
-                <a href="https://github.com/seuusuario/projeto2" class="button-primary">Ver no GitHub</a>
+                <img src="public/Esportive.png" alt="Projeto 2">
+                <h3>Esportive</h3>
+                <p>Projeto acadêmico para reserva de espaços esportivos</p>
+                <a href="https://github.com/alisonssns/Esportive" target="_blank" class="button-secondary">Ver no
+                    GitHub</a>
+            </div>
+            <div class="project-card">
+                <img src="public/Arvore.png" alt="Projeto 4">
+                <h3>Arvore Binaria</h3>
+                <p>Um aplicativo web simples cria a visualização de uma Arvore Binaria de Caracteres</p>
+                <a href="https://github.com/alisonssns/Arvore-Binaria" target="_blank" class="button-secondary">Ver no
+                    GitHub</a>
+            </div>
+            <div class="project-card">
+                <img src="public/mico.png" alt="Projeto 3">
+                <h3>Mico-Processador 32bits</h3>
+                <p>Processador mico de 32 bits que executa algumas funções</p>
+                <a href="https://github.com/alisonssns/MicoProcessador-32bits" target="_blank"
+                    class="button-secondary">Ver no GitHub</a>
             </div>
         </div>
-    </section>
-
-    <section class="testimonials" data-aos="fade-up">
-        <h1 class="title-text">Depoimentos</h1>
-        <div class="testimonial">
-            <p>"Alisson demonstrou um ótimo conhecimento em React e foi essencial no sucesso do nosso projeto!"</p>
-            <h4>- Fulano de Tal, Desenvolvedor Full Stack</h4>
-        </div>
-    </section>
-
-    <section class="education" data-aos="fade-up">
-        <h1 class="title-text">Formação e Certificações</h1>
-        <ul>
-            <li><b>Ciência da Computação</b> - Universidade XYZ (2023 - Presente)</li>
-            <li><b>Curso de React</b> - Plataforma ABC (2024)</li>
-            <li><b>Certificação SQL Avançado</b> - Udemy (2023)</li>
-        </ul>
     </section>
 
     <footer>
         <p>&copy; 2024 Alisson Luis Cordeiro de Arruda - Todos os direitos reservados.</p>
     </footer>
 </body>
-<<<<<<< HEAD:Index.html
 <script src="https://kit.fontawesome.com/d060c1d2dc.js" crossorigin="anonymous"></script>
 <script src="Script.js"></script>
 
-=======
->>>>>>> 32df0beb08ae9b0d09ce876393a266e1e6fa8df3:index.html
 </html>
