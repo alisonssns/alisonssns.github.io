@@ -260,8 +260,20 @@ footer p {
     width: 100%;
 }
 
+.buttons-project {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.buttons-project .button-secondary {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+}
+
 @media (max-width: 1024px) {
-    body{
+    body {
         margin-top: 30px;
     }
 
@@ -282,7 +294,7 @@ footer p {
     .icons {
         gap: 30px;
     }
-    
+
     .icons a {
         font-size: 2.4rem;
     }
