@@ -1,0 +1,117 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.title {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--text-main);
+  font-weight: 800;
+  text-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: rgba(20, 20, 25, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.table th {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--primary-glow);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table td {
+  padding: 1.2rem 1.5rem;
+  color: var(--text-main);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.95rem;
+  transition: background 0.2s;
+  vertical-align: middle;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.gameTitle {
+  font-weight: 700;
+  color: white;
+  font-size: 1rem;
+}
+
+.langBadge {
+  background-color: #222;
+  border: 1px solid #444;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: var(--primary-glow);
+  font-family: var(--font-code);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.wpmValue {
+  color: var(--primary);
+  font-weight: 800;
+  font-family: var(--font-code);
+  font-size: 1.1rem;
+}
+
+.statValue {
+  font-family: var(--font-code);
+  color: var(--text-muted);
+}
+
+.dateValue {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.loading {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .table {
+    display: block;
+    overflow-x: auto;
+  }
+}

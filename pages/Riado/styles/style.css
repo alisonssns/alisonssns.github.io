@@ -1,0 +1,481 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    height: 100vh;
+    background-color: #202020;
+    color: #f1f1f1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 25px;
+    color: #ffffffbc;
+    user-select: none;
+}
+
+header button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+header button img {
+    width: 20px;
+    filter: invert(100%) opacity(0.7);
+}
+
+header button:hover {
+    transform: scale(1.1);
+    filter: opacity(1);
+}
+
+header span {
+    display: flex;
+}
+
+/* ---------- CONFIGURAÇÕES ---------- */
+.config {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.config-panel {
+    width: 700px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 12px;
+    background-color: #101010;
+    color: white;
+}
+
+.config-panel h3 {
+    margin: 0;
+}
+
+.config-panel label {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.config-panel a {
+    color: #ffeb3b;
+}
+
+.config-panel button {
+    margin-top: 15px;
+    padding: 6px 12px;
+    width: fit-content;
+    align-self: center;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    background-color: #ffd54f;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.config-panel button:hover {
+    background-color: #ffeb3b;
+}
+
+/* ---------- CHECKBOX CUSTOM ---------- */
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    font-family: sans-serif;
+}
+
+.checkbox-box {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #888;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.config-panel input:checked~.checkbox-box {
+    background-color: #ffeb3b;
+    border-color: #ffeb3b;
+    box-shadow: 0 0 6px #ffeb3b5c;
+}
+
+.config-panel input:checked~.checkbox-box::after {
+    content: "✔";
+    color: black;
+    font-size: 14px;
+}
+
+/* ---------- MAIN ---------- */
+main {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+}
+
+main .guess {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+main .guess .letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    aspect-ratio: 1/1;
+    font-size: 38px;
+    text-transform: uppercase;
+    border: 2px solid rgba(179, 179, 179, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: all 1s ease;
+}
+
+main .guess .letter span {
+    transition: 1s ease;
+}
+
+.guessed {
+    transform: rotateY(180deg);
+}
+
+.guessed span {
+    transform: rotateY(-180deg);
+}
+
+.correct {
+    background-color: #43a047;
+    border-color: #43a047;
+}
+
+.partial {
+    background-color: #fbc02d;
+    border-color: #fbc02d;
+}
+
+.wrong {
+    background-color: #616161;
+    border-color: #616161;
+}
+
+.down-row {
+    background-color: #101010;
+}
+
+/* ---------- MODAL ---------- */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    width: 300px;
+    padding: 20px 30px;
+    text-align: center;
+    border-radius: 12px;
+    background-color: #222;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h2 {
+    margin-bottom: 10px;
+    color: #ffd54f;
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-content li {
+    margin: 6px 0;
+}
+
+.modal-content button {
+    margin-top: 15px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    background-color: #ffd54f;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.modal-content button:hover {
+    background-color: #ffeb3b;
+}
+
+.shake {
+    animation: shake 0.5s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    10% {
+        transform: translateX(-5px);
+    }
+
+    20% {
+        transform: translateX(5px);
+    }
+
+    30% {
+        transform: translateX(-5px);
+    }
+
+    40% {
+        transform: translateX(5px);
+    }
+
+    50% {
+        transform: translateX(-5px);
+    }
+
+    60% {
+        transform: translateX(5px);
+    }
+
+    70% {
+        transform: translateX(-5px);
+    }
+
+    80% {
+        transform: translateX(5px);
+    }
+
+    90% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* ---------- ERROR ---------- */
+#message {
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    transform: scale(0);
+    z-index: 2000;
+    transition: 0.2s ease;
+}
+
+#message h3 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.error {
+    background-color: #ff4d4f;
+}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 12px;
+    background-color: #1a1a1aa1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar h3 {
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #333;
+    user-select: none;
+    transition: 0.5s ease;
+}
+
+.sidebar ul li.correct {
+    background-color: green;
+    color: white;
+}
+
+.sidebar ul li.partial {
+    background-color: orange;
+    color: white;
+}
+
+.sidebar ul li.wrong {
+    background-color: #555;
+    color: #ccc;
+    opacity: 0.5;
+}
+
+/* ---------- BANNER ---------- */
+.banner {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.5s ease;
+}
+
+.banner-content {
+    background-color: #1e1e1e;
+    border-radius: 14px;
+    padding: 40px 50px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    animation: popIn 0.4s ease;
+}
+
+.banner-content h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.banner-content p {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+.banner-content button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s ease;
+    background-color: #ffeb3b;
+    color: #1a1a1a;
+}
+
+.banner-content button:hover {
+    background-color: #ffe033;
+    transform: scale(1.05);
+}
+
+.banner.win .banner-content {
+    border: 3px solid #4caf50;
+    background: #2e7d32;
+}
+
+.banner.lose .banner-content {
+    border: 3px solid #e53935;
+    background: #8e2121;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.6;
+    padding: 10px;
+}

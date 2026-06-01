@@ -1,0 +1,39 @@
+.button {
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0.6rem 1.5rem;
+    text-transform: uppercase;
+    border: var(--border-thick);
+    box-shadow: var(--shadow-hard);
+    transition: transform 0.1s, box-shadow 0.1s;
+    border-radius: 15px;
+    font-family: inherit;
+    font-size: 0.8rem;
+}
+
+.outline{
+    background-color: unset;
+}
+
+.button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 var( --color-text);
+}
+
+.primary {
+    background-color: var(--color-primary);
+    color: var( --color-bg-card);
+}
+
+.secondary {
+    background-color: var( --color-bg-card);
+    color: var( --color-text);
+}
+
+.register {
+    width: 100%;
+    margin-top: 2rem;
+    background-color: var(--color-primary);
+    color: var( --color-bg-card);
+}

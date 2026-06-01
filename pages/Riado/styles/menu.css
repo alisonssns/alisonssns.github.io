@@ -1,0 +1,156 @@
+body {
+    justify-content: center;
+}
+
+.menu-container {
+    background: #1c1c1c;
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 350px;
+    overflow: hidden;
+    transition: 0.5s ease;
+    z-index: 1000;
+}
+
+.hide{
+    transform: scale(0);
+}
+
+p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 25px;
+}
+
+.slider-section {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+    accent-color: #ffd54f;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+#btn-random {
+    background-color: #4caf50;
+    color: white;
+}
+
+#btn-custom {
+    background-color: #2196f3;
+    color: white;
+}
+
+.custom-section {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: 0.3s ease;
+}
+
+.custom-section.hidden {
+    opacity: 0;
+    pointer-events: none;
+    height: 0;
+    overflow: hidden;
+}
+
+.custom-section input {
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background: #111;
+    color: white;
+    text-align: center;
+}
+
+.custom-section button {
+    background-color: #ffd54f;
+    color: #000;
+}
+
+footer {
+    margin-top: 25px;
+    opacity: 0.6;
+    font-size: 13px;
+}
+
+/* ---------- LOADING ---------- */
+.loading {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+svg {
+    width: 3.25em;
+    transform-origin: center;
+    animation: rotate4 2s linear infinite;
+}
+
+circle {
+    fill: none;
+    stroke: hsl(214, 4%, 62%);
+    stroke-width: 2;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash4 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate4 {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash4 {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dashoffset: -125px;
+    }
+}

@@ -1,0 +1,78 @@
+.codingContainer {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #333;
+    font-family: var(--font-code);
+}
+
+.codeLayer {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    color: #555;
+}
+
+.char {
+    transition: color 0.1s;
+}
+
+.correct {
+    color: #e5c07b;
+    text-shadow: 0 0 5px rgba(229, 192, 123, 0.5);
+}
+
+.error {
+    color: #ef4444;
+    text-decoration: underline wavy;
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+.pending {
+    opacity: 0.5;
+}
+
+.cursor {
+    border-left: 2px solid var(--primary);
+    animation: blink 1s infinite;
+    margin-left: -1px;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.shake {
+    animation: shake 0.3s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+        border-color: var(--error);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}

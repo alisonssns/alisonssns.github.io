@@ -1,0 +1,281 @@
+.adminLayout {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #050505;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: #0f0f12;
+    border-right: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    flex-shrink: 0;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.logoArea {
+    margin-bottom: 3rem;
+    padding-left: 0.5rem;
+}
+
+.logoArea h2 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    color: white;
+    margin: 0;
+}
+
+.dot {
+    color: var(--primary);
+}
+
+.navMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex-grow: 1;
+}
+
+.navBtn {
+    background: transparent;
+    border: none;
+    text-align: left;
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: #888;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+}
+
+.navBtn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.navBtn.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.sidebarFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid #222;
+    padding-top: 1.5rem;
+}
+
+.exitBtn {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+.mainContent {
+    flex-grow: 1;
+    padding: 3rem;
+    background-image: radial-gradient(circle at top right, #1a1a20 0%, #050505 40%);
+
+
+    overflow-y: auto;
+}
+
+.mainContent::-webkit-scrollbar {
+    width: 8px;
+}
+
+.mainContent::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+.mainContent::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+.pageTitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 800;
+    color: white;
+}
+
+.card {
+    background: #121214;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cardHeader h3 {
+    margin-top: 0;
+}
+
+.cardHeader p {
+    color: #888;
+    margin-bottom: 1.5rem;
+}
+
+.gridTwoCols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.formStack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.fullWidth {
+    grid-column: 1 / -1;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    color: #aaa;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.input,
+.textarea,
+.select {
+    width: 100%;
+    background: #09090b;
+    border: 1px solid #333;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+    border-color: var(--primary);
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.codeArea {
+    font-family: 'JetBrains Mono', monospace;
+    min-height: 200px;
+    font-size: 0.9rem;
+    background: #050505;
+    line-height: 1.5;
+}
+
+.actionBtn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 100%;
+}
+
+.actionBtn:hover {
+    background: var(--primary-glow);
+}
+
+.listContainer {
+    background: #121214;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.itemList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.itemList li {
+    padding: 12px;
+    border-bottom: 1px solid #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.itemList li:last-child {
+    border-bottom: none;
+}
+
+.smallId {
+    font-size: 0.75rem;
+    color: #555;
+    background: #1a1a1a;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.adminTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: #121214;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.adminTable th,
+.adminTable td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #222;
+}
+
+.adminTable th {
+    background: #1a1a1a;
+    color: #888;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #050505;
+    color: var(--primary);
+    font-size: 1.5rem;
+}

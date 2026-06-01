@@ -1,0 +1,108 @@
+.header {
+    width: 100%;
+    margin-bottom: 2rem;
+    background-color: var(--bg-panel);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-main);
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text-main);
+    text-decoration: none;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, var(--primary), #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+}
+
+.navLink {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.navLink:hover {
+    color: var(--text-main);
+    background: rgba(255,255,255,0.05);
+}
+
+.selected {
+    color: var(--primary);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.userArea {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profileLink {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-main);
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.profileLink:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.username {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.logoutButton {
+    background: transparent;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: var(--error);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.logoutButton:hover {
+    background: var(--error);
+    color: white;
+}

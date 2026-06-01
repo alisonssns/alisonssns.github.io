@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riado — Menu</title>
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/menu.css">
+</head>
+
+<body>
+    <div class="menu-container" id="menu-container">
+      <h1>RIADO</h1>
+      <p>Escolha o modo de jogo</p>
+
+      <div class="slider-section">
+        <label for="wordSize">Tamanho da palavra: <span id="wordSizeValue">5</span></label>
+        <input type="range" id="wordSize" min="4" max="9" value="5">
+      </div>
+
+      <div class="buttons">
+        <button id="btn-random">Iniciar jogo aleatório</button>
+        <button id="btn-custom">Criar palavra personalizada</button>
+      </div>
+
+      <div class="custom-section hidden" id="customSection">
+        <input type="text" id="customWord" placeholder="Digite a palavra secreta" />
+        <button id="btn-start-custom">Começar jogo</button>
+      </div>
+
+      <p>Feito por Alisson | Inspirado em <strong>Wordle</strong></p>
+    </div>
+
+  <div class="loading" id="loading">
+    <svg viewBox="25 25 50 50">
+      <circle r="20" cy="50" cx="50"></circle>
+    </svg>
+    <h3>Carregando...</h3>
+  </div>
+  <script src="./scripts/menu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+.statItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background-color: var(--color-bg-tertiary, #3e4451);
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.statItem:hover {
+    background-color: var(--color-bg-highlight, #4a515e);
+}
+
+.icon {
+    font-size: 1.5rem;
+    color: var(--color-primary, #61dafb);
+    line-height: 1;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.label {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary, #a8a8a8);
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text, #ffffff);
+}
+
+.unit {
+    font-size: 0.9rem;
+    margin-left: 2px;
+    font-weight: 400;
+    color: var(--color-text-secondary, #a8a8a8);
+}

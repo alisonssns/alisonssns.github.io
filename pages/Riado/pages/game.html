@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riado</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="icon" type="image/x-icon" href="../public/icon.png">
+</head>
+
+<body>
+  <header>
+    <span>
+      <button id="btn-help" title="Como jogar">
+        <img src="../public/question.png" alt="Ajuda">
+      </button>
+
+      <button id="btn-config" title="Configurações">
+        <img src="../public/setting.png" alt="Configurações">
+      </button>
+    </span>
+
+    <h1>RIADO</h1>
+
+    <button title="Home" id="btn-home">
+      <a href="../index.html">
+        <img src="../public/home.png" alt="Início">
+      </a>
+    </button>
+  </header>
+
+  <div id="message">
+    <h3></h3>
+  </div>
+
+  <main></main>
+
+  <footer>
+    <p>Feito por Alisson | Inspirado em <strong>Wordle</strong></p>
+  </footer>
+
+  <div class="config hidden" id="config">
+    <div class="config-panel">
+      <label class="checkbox">
+        <h3>Verificar se a palavra existe</h3>
+        <input type="checkbox" id="dictionary" hidden>
+        <div class="checkbox-box" id="check-dictionary"></div>
+      </label>
+
+      <label class="checkbox">
+        <h3>Ativar cronômetro (não funcional)</h3>
+        <input type="checkbox" id="cronometer" hidden>
+        <div class="checkbox-box" id="check-cronometer"></div>
+      </label>
+
+      <h3>
+        Riado é baseado em
+        <a href="https://term.ooo/" target="_blank">Termo</a>,
+        que por sua vez é inspirado em
+        <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">Wordle</a>.
+      </h3>
+
+      <button id="config-close">Fechar</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <h2>Como jogar</h2>
+      <p>Digite uma palavra e pressione <strong>Enter</strong>.</p>
+      <ul>
+        <li>🟩 Verde: Letra correta e na posição certa.</li>
+        <li>🟧 Laranja: Letra existe na palavra, mas em outra posição.</li>
+        <li>⬛ Cinza: Letra não existe na palavra.</li>
+      </ul>
+      <strong>Importante:</strong>
+      <p>Por padrão, a <strong>verificação da existencia da palavra</strong> vem ativa, caso queira desativar esta, entre
+        nas opções e desmarque a opção de verificação.</p>
+      <button id="btn-close">Fechar</button>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <h3>Letras</h3>
+
+    <ul>
+      <li id="letter-q">q</li>
+      <li id="letter-w">w</li>
+      <li id="letter-e">e</li>
+      <li id="letter-r">r</li>
+      <li id="letter-t">t</li>
+      <li id="letter-y">y</li>
+      <li id="letter-u">u</li>
+      <li id="letter-i">i</li>
+      <li id="letter-o">o</li>
+      <li id="letter-p">p</li>
+    </ul>
+
+    <ul>
+      <li id="letter-a">a</li>
+      <li id="letter-s">s</li>
+      <li id="letter-d">d</li>
+      <li id="letter-f">f</li>
+      <li id="letter-g">g</li>
+      <li id="letter-h">h</li>
+      <li id="letter-j">j</li>
+      <li id="letter-k">k</li>
+      <li id="letter-l">l</li>
+    </ul>
+
+    <ul>
+      <li id="letter-z">z</li>
+      <li id="letter-x">x</li>
+      <li id="letter-c">c</li>
+      <li id="letter-v">v</li>
+      <li id="letter-b">b</li>
+      <li id="letter-n">n</li>
+      <li id="letter-m">m</li>
+    </ul>
+  </div>
+
+  <div id="result-banner" class="banner hidden">
+    <div class="banner-content">
+      <h2 id="banner-title"></h2>
+      <p id="banner-message"></p>
+      <button id="btn-menu">Voltar ao menu</button>
+    </div>
+  </div>
+  <script src="../scripts/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+.arenaContainer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+    animation: zoomIn 0.3s ease-out;
+}
+
+.arenaHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.backButton {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.backButton:hover {
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.gameTitle {
+    margin: 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modeTag {
+    font-size: 0.7rem;
+    background: var(--error);
+    padding: 2px 6px;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+.statsPanel {
+    background-color: var(--bg-panel);
+    border-radius: 8px 8px 0 0;
+    padding: 15px 20px;
+    border: 1px solid var(--border-glass);
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.statsRow {
+    display: flex;
+    gap: 2rem;
+}
+
+.gameArea {
+    width: 100%;
+}
+
+.codingCard {
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid var(--border-glass);
+    border-top: none; 
+    box-shadow: var(--shadow-card);
+    min-height: 300px;
+}
+
+.footerInfo {
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.loadingScreen {
+    text-align: center;
+    padding: 5rem;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.headerInfo {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.langSelector {
+    display: flex;
+    background: #222;
+    border-radius: 6px;
+    padding: 4px;
+    gap: 4px;
+    border: 1px solid #444;
+}
+
+.langBtn {
+    background: transparent;
+    border: none;
+    color: #888;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.langBtn:hover {
+    color: white;
+}
+
+.activeLang {
+    background: var(--primary);
+    color: white !important;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}

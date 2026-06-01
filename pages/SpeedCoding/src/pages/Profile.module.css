@@ -1,0 +1,231 @@
+
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.profileHeader {
+    background: linear-gradient(135deg, rgba(30, 30, 35, 0.8), rgba(20, 20, 25, 0.9));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.profileHeader::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: var(--primary);
+    filter: blur(120px);
+    opacity: 0.15;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.avatarCircle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+    z-index: 1;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+}
+
+.userInfo {
+    z-index: 1;
+}
+
+.userName {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+}
+
+.userEmail {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin: 5px 0 15px 0;
+}
+
+.memberSince {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #ccc;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.statCard {
+    background: rgba(30, 30, 35, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.statCard:hover {
+    transform: translateY(-5px);
+    background: rgba(40, 40, 45, 0.8);
+    border-color: var(--primary-glow);
+}
+
+.statValue {
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    margin: 10px 0;
+    font-family: var(--font-code);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.statLabel {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.statCard.blue .statValue {
+    color: var(--primary-glow);
+    text-shadow: 0 0 20px rgba(96, 165, 250, 0.4);
+}
+
+.statCard.purple .statValue {
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.statCard.green .statValue {
+    color: var(--success);
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+    border-left: 4px solid var(--primary);
+    padding-left: 1rem;
+}
+
+.historyList {
+    background: rgba(20, 20, 25, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+.historyItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.historyItem:last-child {
+    border-bottom: none;
+}
+
+.historyItem:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.gameInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.gameName {
+    font-weight: bold;
+    color: white;
+    font-size: 1rem;
+}
+
+.gameDate {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.gameScore {
+    text-align: right;
+}
+
+.scoreMain {
+    font-family: var(--font-code);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.scoreSub {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.loading {
+    text-align: center;
+    padding: 4rem;
+    color: var(--text-muted);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .profileHeader {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+}
