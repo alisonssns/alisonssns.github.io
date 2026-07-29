@@ -82,15 +82,15 @@ async function checkWord(word) {
 
 async function checkGuess() {
     isWaiting = true;
-    
+
     if (currentGuess.filter((el) => el != "").length !== wordLength) {
-        isWaiting = false
+        isWaiting = false;
         return showError(`Somente palavras com ${wordLength} letras.`);
     }
-    
+
     if (dictionaryConfig) {
         const isValid = await checkWord(currentGuess);
-        isWaiting = false
+        isWaiting = false;
         if (!isValid) return showError("Essa palavra não é aceita!");
     }
 
@@ -99,16 +99,17 @@ async function checkGuess() {
     const secretArray = secretWord.toLowerCase().split("");
     const letterCount = countLetters(secretArray);
 
-    index = 0
+    let index = 0;
+
     const intervaloOdair = setInterval(() => {
         letterCells[index].classList.add("guessed");
         letterCells[index].classList.remove("selected");
+
         if (currentGuess[index] === secretArray[index]) {
             setColor(letterCells[index], "correct");
             letterCount[currentGuess[index]]--;
             updateSideBar(currentGuess[index], "correct");
-        }
-        if (currentGuess[index] !== secretArray[index]) {
+        } else {
             if (letterCount[currentGuess[index]] > 0) {
                 setColor(letterCells[index], "partial");
                 letterCount[currentGuess[index]]--;
@@ -118,26 +119,31 @@ async function checkGuess() {
                 updateSideBar(currentGuess[index], "wrong");
             }
         }
-        index += 1
+
+        index += 1;
+
+
         if (index >= wordLength) {
-            clearInterval(intervaloOdair)
-            isWaiting = false
+            clearInterval(intervaloOdair);
+
+            if (currentGuess.join("") === secretWord.toLowerCase()) {
+                isWaiting = false;
+                return showResult(true);
+            }
+
+            attemptCount++;
+
+            if (attemptCount >= guessRows.length) {
+                showResult(false);
+            } else {
+                currentGuess.fill("");
+                pointer = 0;
+                updateRowState();
+            }
+
+            isWaiting = false;
         }
-    }, 300)
-
-    if (currentGuess.join("") === secretWord.toLowerCase()) {
-        return showResult(true);
-    }
-
-    attemptCount++;
-    if (attemptCount > wordLength) {
-        showResult(false);
-    } else {
-        currentGuess.fill("")
-        pointer = 0
-        updateRowState();
-    }
-
+    }, 300);
 }
 
 function updateRowState() {
