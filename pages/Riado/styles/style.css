@@ -160,17 +160,23 @@ main .guess .letter {
     align-items: center;
     justify-content: center;
     width: 55px;
-    aspect-ratio: 1/1;
+    height: 55px;
+    max-height: 55px;
     font-size: 38px;
     text-transform: uppercase;
+    box-sizing: border-box;
     border: 2px solid rgba(179, 179, 179, 0.3);
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    transition: all 1s ease;
+    transition: border-bottom 0.15s ease, transform 1s ease, background-color 1s ease;
 }
 
 main .guess .letter span {
     transition: 1s ease;
+}
+
+.selected {
+    border-bottom: 8px solid rgba(179, 179, 179, 0.3) !important;
 }
 
 .guessed {

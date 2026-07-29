@@ -16,7 +16,8 @@ let dictionaryConfig = localStorage.getItem("dictionary");
 dictionaryConfig = dictionaryConfig ? dictionaryConfig === "true" : true;
 let helpClosed = localStorage.getItem("help") === "true";
 let wordLength = secretWord.length;
-let currentGuess = "";
+let currentGuess = new Array(wordLength).fill("");
+let pointer = 0;
 let attemptCount = 0;
 let guessRows = [];
 let gameEnded = false;
@@ -34,8 +35,6 @@ function initGrid() {
             const span = document.createElement("span");
 
             cell.className = "letter";
-            cell.style.transitionDelay = `${0.3 * j}s`;
-            span.style.transitionDelay = `${0.3 * j}s`;
 
             cell.appendChild(span);
             row.appendChild(cell);
@@ -74,7 +73,6 @@ async function checkWord(word) {
         const response = await fetch(url);
         if (!response.ok) throw new Error(`Erro: ${response.status}`);
         const data = await response.json();
-        isWaiting = false;
         return Array.isArray(data) && data.length > 0;
     } catch (err) {
         console.warn("Erro ao verificar palavra:", err);
@@ -83,45 +81,51 @@ async function checkWord(word) {
 }
 
 async function checkGuess() {
-    if (currentGuess.length !== wordLength) {
+    isWaiting = true;
+    
+    if (currentGuess.filter((el) => el != "").length !== wordLength) {
+        isWaiting = false
         return showError(`Somente palavras com ${wordLength} letras.`);
     }
-
+    
     if (dictionaryConfig) {
-        isWaiting = true;
         const isValid = await checkWord(currentGuess);
+        isWaiting = false
         if (!isValid) return showError("Essa palavra não é aceita!");
     }
 
     const row = guessRows[attemptCount];
     const letterCells = row.querySelectorAll(".letter");
     const secretArray = secretWord.toLowerCase().split("");
-    const guessArray = currentGuess.toLowerCase().split("");
     const letterCount = countLetters(secretArray);
 
-    guessArray.forEach((letter, i) => {
-        letterCells[i].classList.add("guessed");
-        if (letter === secretArray[i]) {
-            setColor(letterCells[i], "correct");
-            letterCount[letter]--;
-            updateSideBar(letter, "correct");
+    index = 0
+    const intervaloOdair = setInterval(() => {
+        letterCells[index].classList.add("guessed");
+        letterCells[index].classList.remove("selected");
+        if (currentGuess[index] === secretArray[index]) {
+            setColor(letterCells[index], "correct");
+            letterCount[currentGuess[index]]--;
+            updateSideBar(currentGuess[index], "correct");
         }
-    });
-
-    guessArray.forEach((letter, i) => {
-        if (letter !== secretArray[i]) {
-            if (letterCount[letter] > 0) {
-                setColor(letterCells[i], "partial");
-                letterCount[letter]--;
-                updateSideBar(letter, "partial");
+        if (currentGuess[index] !== secretArray[index]) {
+            if (letterCount[currentGuess[index]] > 0) {
+                setColor(letterCells[index], "partial");
+                letterCount[currentGuess[index]]--;
+                updateSideBar(currentGuess[index], "partial");
             } else {
-                setColor(letterCells[i], "wrong");
-                updateSideBar(letter, "wrong");
+                setColor(letterCells[index], "wrong");
+                updateSideBar(currentGuess[index], "wrong");
             }
         }
-    });
+        index += 1
+        if (index >= wordLength) {
+            clearInterval(intervaloOdair)
+            isWaiting = false
+        }
+    }, 300)
 
-    if (currentGuess.toLowerCase() === secretWord.toLowerCase()) {
+    if (currentGuess.join("") === secretWord.toLowerCase()) {
         return showResult(true);
     }
 
@@ -129,9 +133,11 @@ async function checkGuess() {
     if (attemptCount > wordLength) {
         showResult(false);
     } else {
-        currentGuess = "";
+        currentGuess.fill("")
+        pointer = 0
         updateRowState();
     }
+
 }
 
 function updateRowState() {
@@ -147,20 +153,61 @@ function setColor(cell, color) {
     cell.classList.add(color);
 }
 
+function setSelectedCell(index) {
+    const row = guessRows[attemptCount]
+    row.querySelectorAll(".letter").forEach((cell, i) => {
+        if (i == index) {
+            cell.classList.add("selected")
+        } else {
+            cell.classList.remove("selected")
+        }
+    });
+}
+
+function changePointer(value) {
+    const row = guessRows[attemptCount]
+    if (row) {
+        let movedPointer = pointer + value
+        if (movedPointer >= 0 && movedPointer < wordLength) {
+            pointer = pointer + value
+            setSelectedCell(pointer)
+        }
+    }
+}
+
 function handleKey(event) {
     if (gameEnded || isWaiting) return;
     const key = event.key.toLowerCase();
     hideMessage();
 
-    if (/^[a-z]$/.test(key) && currentGuess.length < wordLength) {
-        currentGuess += key;
+    if (/^[a-z]$/.test(key) && pointer < wordLength) {
+        currentGuess[pointer] = key
+        for (let i = pointer; i < wordLength; ++i) {
+            if (currentGuess[i] == "") {
+                changePointer(i - pointer);
+                updateLetters();
+                break;
+            }
+        }
         updateLetters();
     } else if (key === "backspace") {
-        currentGuess = currentGuess.slice(0, -1);
+        if (currentGuess[pointer]) {
+            currentGuess[pointer] = ""
+        } else if (pointer > 0) {
+            currentGuess[pointer - 1] = ""
+        }
+
+        changePointer(-1)
         updateLetters();
     } else if (key === "enter") {
         guessRows[attemptCount].classList.remove("shake");
         checkGuess();
+    } else if (key === "arrowleft") {
+        changePointer(-1)
+    } else if (key === "arrowright") {
+        changePointer(1)
+    } else {
+        console.log(key)
     }
 }
 
@@ -203,7 +250,7 @@ function showResult(win) {
             : `A palavra era: ${secretWord}`;
 
         btnMenu.onclick = () => (window.location.href = "../index.html");
-    }, 300*wordLength);
+    }, 300 * wordLength);
 }
 
 function openHelp() {
@@ -229,12 +276,13 @@ function changeDictionary(event) {
     localStorage.setItem("dictionary", dictionaryConfig);
 }
 
-if(helpClosed){
+if (helpClosed) {
     closeHelp();
 }
 
 function initGame() {
     initGrid();
+    setSelectedCell(0);
     document.addEventListener("keydown", handleKey);
 
     btnHelp.addEventListener("click", openHelp);
